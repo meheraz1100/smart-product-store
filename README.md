@@ -1,4 +1,4 @@
-# Next Store | Ecommerce Website
+# Smart Product Store | Ecommerce Website
 
 ## Project Description
 This is a simple Next.js 15 application demonstrating public and protected pages with basic authentication using NextAuth.js. Users can view a landing page, browse products, see product details, and, once authenticated, access a protected dashboard to add new products.
