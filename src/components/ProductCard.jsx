@@ -1,50 +1,66 @@
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
 
 const ProductCard = ({ product }) => {
-    const { image, price, name, description } = product;
-    return (
-        <div className="group w-full bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-800 dark:border-gray-700">
+  const { image, price, name } = product;
 
-  {/* Image Section */}
-  <div className="h-80 w-full overflow-hidden">
-    <img
-      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-      src={image}
-      alt="product image"
-    />
-  </div>
+  return (
+    <div className="group relative w-full rounded-2xl overflow-hidden 
+    bg-white dark:bg-gray-900 
+    border border-gray-200 dark:border-gray-800
+    shadow-sm hover:shadow-2xl
+    transition-all duration-300 hover:-translate-y-2">
 
-  {/* Content */}
-  <div className="px-5 pb-5 mt-4 space-y-4">
+      {/* Image Section */}
+      <div className="relative h-80 w-full overflow-hidden">
 
-    {/* Title */}
-    <h5 className="text-lg md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2">
-      {name}
-    </h5>
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full object-cover 
+          transition-transform duration-700 group-hover:scale-110"
+        />
 
-    {/* Bottom Section */}
-    <div className="flex items-center justify-between">
+        {/* Dark Overlay for premium feel */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
+      </div>
 
-      {/* Price */}
-      <span className="text-2xl font-bold text-gray-900 dark:text-white">
-        ${price}
-      </span>
+      {/* Content */}
+      <div className="p-5 space-y-4">
 
-      {/* Button */}
-      <Link
-        href={`/products/${product._id}`}
-        className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl shadow-md transition-all duration-300 overflow-hidden
-        hover:from-blue-700 hover:to-blue-600 hover:shadow-lg active:scale-95"
-      >
-        View Details
-      </Link>
+        {/* Title */}
+        <h5 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white line-clamp-2">
+          {name}
+        </h5>
 
+        {/* Bottom Section */}
+        <div className="flex items-center justify-between">
+
+          {/* Price Badge */}
+          <span className="px-3 py-1 rounded-full text-sm font-bold 
+          bg-gray-100 text-gray-900 
+          dark:bg-gray-800 dark:text-white
+          border border-gray-200 dark:border-gray-700">
+            ${price}
+          </span>
+
+          {/* Button */}
+          <Link
+            href={`/products/${product._id}`}
+            className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white
+            bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+            rounded-xl shadow-md
+            transition-all duration-300
+            hover:shadow-purple-500/30 hover:scale-105
+            active:scale-95"
+          >
+            View Details
+          </Link>
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  );
+};
 
-    )
-}
-
-export default ProductCard
+export default ProductCard;
