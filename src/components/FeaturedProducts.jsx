@@ -22,7 +22,9 @@ const FeaturedProducts = async () => {
   const products = await getProducts();
   return (
     <div className='mt-10 min-h-screen'>
-      <h2 className='text-2xl text-center font-bold'>Featured Products</h2>
+      <h2 className="text-center font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tight text-gray-900 dark:text-white">
+  Featured Products
+</h2>
 
       {products.length === 0 ? (
         <p className="">No products found.</p>
